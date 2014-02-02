@@ -29,7 +29,6 @@ public bool isSrcEntity(loc entity) =
 
 public list[str] getCleanCode(loc location, list[str] comments){
 	list[str] cleanCode = [];
-	//comments = getComments(model);
     for(l <- readFileLines(location)){   
     	l = trim(l);     
        	if(l notin comments)       		

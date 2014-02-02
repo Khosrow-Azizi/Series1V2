@@ -1,0 +1,30 @@
+====================================== Begin report ======================================
+
+Analysis of function point by lines of code:
+	The system has got a total size of 114442 lines of code.
+	This gives a ranking of '+' which indicates that the man years is 8 to 30.
+
+
+Analysis of complexity:
+	Percentage of low risk:		50%
+	Percentage of moderate risk:	14%
+	Percentage of high risk:	11%
+	Percentage of very high risk:	9%
+	This gives the project a '--' for Cyclomatic Complexity.
+
+
+Analysis of unit size:
+	Percentage of low risk:		21%
+	Percentage of moderate risk:	14%
+	Percentage of high risk:	20%
+	Percentage of very high risk:	28%
+	This gives the project a '--' for Units Size.
+
+
+Analysis of code duplicates:
+	The system has got a total duplicates of 2814 lines of code. 
+	It is 3% of the total size of the project.
+	This gives a ranking of '+' for code duplicates.
+
+====================================== End report ======================================
+Total execution time 1100.9614574 seconds.
