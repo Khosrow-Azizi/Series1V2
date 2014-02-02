@@ -1,4 +1,4 @@
-module series1::DuplicationAnalyser
+module DuplicationAnalyser
 
 import IO;
 import List;
@@ -11,8 +11,8 @@ import util::Math;
 import util::Benchmark; 
 
 
-import series1::LinesOfCodeCalculator;
-import series1::SourceCodeFilter;
+import LinesOfCodeCalculator;
+import SourceCodeFilter;
 
 public loc HelloWorldLoc = |project://HelloWorld|;
 public loc smallsqlLoc = |project://smallsql|; 
@@ -46,10 +46,10 @@ public void reportProjectMetrics(loc project){
 	println((toReal(totalDublications)/totalLoc) * 100);
 }
 
-public int calculateDuplications(set[loc] projectMethods, int minThreshold){
+public int calculateDuplications(set[loc] projectMethods, int minThreshold, list[str] comments){
 	list[tuple[loc location, list[str] sourceCode]] filterdMethods = [];
 	for(m <- projectMethods){
-		sourceCode = getCleanCode(m);
+		sourceCode = getCleanCode(m, comments);
 		if(size(sourceCode) >= minThreshold)
 			filterdMethods += (<m, sourceCode>);	
 	}

@@ -1,4 +1,4 @@
-module series1::Main
+module Main
 
 import lang::java::jdt::m3::AST;
 import lang::java::jdt::m3::Core; 
@@ -9,12 +9,11 @@ import util::Benchmark;
 import List;
 import IO;
 
-import series1::SourceCodeFilter;
-import series1::LinesOfCodeCalculator;
-//import series1::DuplicatesCalculator;
-import series1::DuplicationAnalyser;
-import series1::CyclomaticComplexity;
-import series1::Ranking;
+import SourceCodeFilter;
+import LinesOfCodeCalculator;
+import DuplicationAnalyser;
+import CyclomaticComplexity;
+import Ranking;
 
 public loc HelloWorldLoc = |project://HelloWorld|;
 public loc smallsqlLoc = |project://smallsql|; 
@@ -30,14 +29,22 @@ public void reportProjectMetrics(loc project){
 	model = createM3FromEclipseProject(project);
 	ast = createAstsFromEclipseProject(project, false);	
 	
+	//for(d <- model@documentation)
+		//println(d);
+		
 	set[loc] srcFiles = getSrcFiles(model);
 	set[loc] srcMethods = getSrcMethods(srcFiles);
-		
-	int totalLoc = calculateProjectLoc(srcFiles);	
-	int totalMethodsLoc = calculateProjectLoc(srcMethods);	
-	int totalDublications = calculateDuplications(srcMethods, 6);
-	list[tuple[str name, loc location, int complexity, int lofc]] ccAnalysisResult = getComplexityPerUnit(ast, true);
-	println("Analysis <ccAnalysisResult>");
+	
+	list[str] comments = getComments(model);
+	
+	//for (s <- srcFiles)
+		//println(s);
+	
+	int totalLoc = calculateProjectLoc(srcFiles, comments);	
+	int totalMethodsLoc = calculateProjectLoc(srcMethods, comments);	
+	int totalDublications = calculateDuplications(srcMethods, 6, comments);
+	list[tuple[str name, loc location, int complexity, int lofc]] ccAnalysisResult = getComplexityPerUnit(ast, comments, true);
+	//println("Analysis <ccAnalysisResult>");
 	println("====================================== Begin report ======================================");
 	println("");
 	
