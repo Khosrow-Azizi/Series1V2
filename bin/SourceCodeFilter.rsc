@@ -31,7 +31,7 @@ public list[str] getCleanCode(loc location, list[str] comments){
 	list[str] cleanCode = [];
     for(l <- readFileLines(location)){   
     	l = trim(l);     
-       	if(l notin comments)       		
+       	if(l notin comments && !(/^\s*$/ := l))       		
        		cleanCode += l;
     }    
     return cleanCode;
