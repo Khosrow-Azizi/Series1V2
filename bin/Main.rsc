@@ -11,13 +11,14 @@ import IO;
 
 import SourceCodeFilter;
 import LinesOfCodeCalculator;
-import DuplicationAnalyser;
+//import DuplicationAnalyser;
+import DuplicationAnalysis;
 import CyclomaticComplexity;
 import Ranking;
 
 public loc HelloWorldLoc = |project://HelloWorld|;
 public loc smallsqlLoc = |project://smallsql|; 
-public loc hsqldbLoc = |project://hsqldb231|;
+public loc hsqldbLoc = |project://hsqldb|;
 
 public void startAnalysis(loc project){
 	println("Analysis started. Please wait..");
