@@ -6,7 +6,7 @@ Analysis of function point by lines of code:
 
 
 Analysis of complexity:
-	Percentage of low risk:		63%
+	Percentage of low risk:		68%
 	Percentage of moderate risk:	9%
 	Percentage of high risk:	16%
 	Percentage of very high risk:	7%
@@ -14,9 +14,9 @@ Analysis of complexity:
 
 
 Analysis of unit size:
-	Percentage of low risk:		42%
-	Percentage of moderate risk:	13%
-	Percentage of high risk:	19%
+	Percentage of low risk:		44%
+	Percentage of moderate risk:	14%
+	Percentage of high risk:	20%
 	Percentage of very high risk:	21%
 	This gives the project a '--' for Units Size.
 
@@ -27,4 +27,4 @@ Analysis of code duplicates:
 	This gives a ranking of '++' for code duplicates.
 
 ====================================== End report ======================================
-Total execution time 36.8318361 seconds.
+Total execution time 38.8286489 seconds.

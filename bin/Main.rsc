@@ -11,7 +11,6 @@ import IO;
 
 import SourceCodeFilter;
 import LinesOfCodeCalculator;
-//import DuplicationAnalyser;
 import DuplicationAnalysis;
 import CyclomaticComplexity;
 import Ranking;

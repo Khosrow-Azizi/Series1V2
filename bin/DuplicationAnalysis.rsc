@@ -62,7 +62,7 @@ public int calculateDuplications(set[loc] projectMethods, int minThreshold, list
 				else
 					scanedBlocks += pattern;					
 			}			
-		}			
+		}	
 	}
 	return size(dupSet);
 }
