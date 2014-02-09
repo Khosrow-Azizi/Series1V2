@@ -19,6 +19,12 @@ public list[tuple[str name, loc location, int complexity, int lofc]] getComplexi
 					result += <methodName, impl@src, calculateCC(impl), calculateLoc(impl@src, comments)>;
 			}								
 		}
+		case constructor(str methodName, _, _, Statement impl) : {
+			if(scanSrcOnly){
+				if(isSrcEntity(impl@src))
+					result += <methodName, impl@src, calculateCC(impl), calculateLoc(impl@src, comments)>;
+			}	
+		}
 	}
 	return result;
 }
@@ -34,7 +40,10 @@ public int calculateCC(Statement stat){
 		case \for(_, _, _, _): count += 1;
 		case \do(_, _): count += 1;
 		case \while(_, _): count += 1;
-		case \catch(_, _): count += 1;			
+		case \catch(_, _): count += 1;
+		case \conditional(_,_,_): count += 1;			
+		case \infix(Expression lhs, "||", Expression rhs, list[Expression] extendedOperands): count += 1;
+		case \infix(Expression lhs, "&&", Expression rhs, list[Expression] extendedOperands): count += 1;
 	}
 	return count;
 }
