@@ -50,15 +50,15 @@ public void reportProjectMetrics(loc project){
 
 public int calculateDuplications(set[loc] projectMethods, int minThreshold, list[str] comments){
 	set[list[str]] scanedBlocks = {};
-	set[str] dupSet = {};
+	list[str] dupSet = [];
 	for(m <- projectMethods){		
 		sourceCode = getCleanCode(m, comments);
-		blockLength = size(sourceCode) + 1;		
+		blockLength = size(sourceCode) + 1;
 		if(blockLength >= minThreshold){
 			searchPatterns = [slice(sourceCode, beginIndex, minThreshold) | beginIndex <- [0..blockLength], beginIndex + minThreshold < blockLength];
 			for(pattern <- searchPatterns){
 				if(pattern in scanedBlocks)
-					dupSet += toSet(pattern);
+					dupSet += pattern;
 				else
 					scanedBlocks += pattern;					
 			}			
